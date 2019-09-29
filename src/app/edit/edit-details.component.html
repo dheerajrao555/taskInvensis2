@@ -1,0 +1,25 @@
+<br><br>
+<div *ngFor="let item of viewEmployeeDetails">
+    <div *ngFor="let viewDetails of item.data">
+        <div *ngIf="storeParam==viewDetails.id">
+            <form #myForm="ngForm"> 
+                {{myForm.touched}}          
+             Id:<input type="text" name="id" #name=ngModel [(ngModel)]="viewDetails.id"> <br>
+            {{name.dirty}}
+            First Name:<input type="text" name="name" [(ngModel)]="viewDetails.first_name"> <br>
+            Last Name:<input type="text" name="lname" [(ngModel)]="viewDetails.last_name"> <br>
+            Email:<input type="text" name="email" [(ngModel)]="viewDetails.email"> <br><br>
+            <button class="btn btn-success"  (click)="updation();" >Update</button>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="isChilcked">
+    {{successResponse.first_name}}
+    {{successResponse.last_name}}
+    {{successResponse.email}}
+</div>
+
